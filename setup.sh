@@ -21,7 +21,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Install curl
 brew install curl
 # Put the curl we installed in PATH
-echo 'export # curl related settings' >> $MAC_SETUP_ZSHRC
+echo '# curl related settings' >> $MAC_SETUP_ZSHRC
 echo 'export PATH="/opt/homebrew/opt/curl/bin:$PATH"' >> $MAC_SETUP_ZSHRC
 # For pkg-config to find curl you may need to set:
 echo 'export PKG_CONFIG_PATH="/opt/homebrew/opt/curl/lib/pkgconfig"' >> $MAC_SETUP_ZSHRC
@@ -40,15 +40,6 @@ brew install lsd
 # Install fonts for lsd. Remembrer to set the fonts in terminal/iterm
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
-
-{
-  echo "Aliases for ls and lsd"
-  echo "alias ls='lsd'"
-  echo "alias l='ls -l'"
-  echo "alias la='ls -a'"
-  echo "alias lla='ls -la'"
-  echo "alias lt='ls --tree'"
-} >> $MAC_SETUP_ZSHRC
 
 # Various CLI tools
 brew install tmux
@@ -99,7 +90,19 @@ brew install --cask firefox
 brew install --cask steam
 brew install --cask google-chrome
 
-# reload profile files.
+# Aliases
+{
+  echo "# Aliases"
+  echo ""
+  echo "# Aliases for ls and lsd"
+  echo "alias ls='lsd'"
+  echo "alias l='ls -l'"
+  echo "alias la='ls -a'"
+  echo "alias lla='ls -la'"
+  echo "alias lt='ls --tree'"
+} >> $MAC_SETUP_ZSHRC
+
+# Write and reaload profile files.
 {
   echo "source $MAC_SETUP_ZPROFILE # alias and things added by mac_setup script"
 } >> "$HOME/.zprofile"

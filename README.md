@@ -2,8 +2,8 @@
 
 To-do:
 
-- [] Test script in a VM
-- [] Add keyboard shortcuts for jumping over one word and whole line
+- [ ] Test script in a VM
+- [ ] Add keyboard shortcuts for jumping over one word and whole line
 
 ## Things to set up manually
 
