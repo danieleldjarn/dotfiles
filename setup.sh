@@ -46,11 +46,12 @@ sed -i '' 's/# HIST_STAMPS="mm/dd/yyyy"/HIST_STAMPS="yyyy-mm-dd"/g' ~/.zshrc
 brew install tmux
 brew install htop
 brew install tree
-brew install ack
+brew install ack # alternative grep
 brew install jq
-brew install tldr
+brew install tldr # simple crowdsourced manpages
 brew install wget
-brew install lsd
+brew install lsd # better ls
+brew install btop # htop alternative
 # Install fonts for lsd. Remembrer to set the fonts in terminal/iterm
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
