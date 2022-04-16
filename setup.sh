@@ -3,7 +3,7 @@
 INSTALL_FOLDER=~/.macsetup
 mkdir -p $INSTALL_FOLDER
 MAC_SETUP_ZSHRC=$INSTALL_FOLDER/macsetup_zshrc
-MAC_SETUP_ZSH_PROFILE=$INSTALL_FOLDER/macsetup_zprofile
+MAC_SETUP_Z_PROFILE=$INSTALL_FOLDER/macsetup_zprofile
 
 # Install brew
 if ! hash brew
@@ -35,11 +35,12 @@ echo 'export PATH="/opt/homebrew/opt/git/bin/"' >> $MAC_SETUP_ZSHRC
 brew install zsh
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-brew install lsd
-# Install fonts for lsd. Remembrer to set the fonts in terminal/iterm
-brew tap homebrew/cask-fonts
-brew install --cask font-hack-nerd-font
+# Install zsh plugins 
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+sed -i '' 's/plugins=(git)/plugins=(git colored-man-pages colorize pip python brew macos zsh-autosuggestions zsh-syntax-highlighting)/g' ~/.zshrc
+# Change date used by zsh to ISO format
+sed -i '' 's/# HIST_STAMPS="mm/dd/yyyy"/HIST_STAMPS="yyyy-mm-dd"/g' ~/.zshrc 
 
 # Various CLI tools
 brew install tmux
@@ -49,6 +50,10 @@ brew install ack
 brew install jq
 brew install tldr
 brew install wget
+brew install lsd
+# Install fonts for lsd. Remembrer to set the fonts in terminal/iterm
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
 
 # Python stuff
 # Install python build dependencies
@@ -70,9 +75,9 @@ brew install pyenv
 echo 'eval "$(pyenv init -)"' >> $MAC_SETUP_ZSHRC
 
 {
-  echo "Python related stuff"
+  echo "# Python related stuff"
   echo 'eval "$(pyenv init --path)"'
-} >> $MAC_SETUP_ZSH_PROFILE
+} >> $MAC_SETUP_Z_PROFILE
 
 # Utilities for a nicer MacOS experience
 brew install --cask rectangle # Window snapping and resizing
@@ -104,7 +109,7 @@ brew install --cask google-chrome
 
 # Write and reaload profile files.
 {
-  echo "source $MAC_SETUP_ZPROFILE # alias and things added by mac_setup script"
+  echo "source $MAC_SETUP_Z_PROFILE # alias and things added by mac_setup script"
 } >> "$HOME/.zprofile"
 source "$HOME/.zprofile"
 {
