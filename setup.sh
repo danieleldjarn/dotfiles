@@ -65,15 +65,19 @@ brew install openssl readline sqlite3 xz zlib
   echo 'export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"'
   echo 'export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"'
   echo 'export PKG_CONFIG_PATH="/opt/homebrew/opt/zlib/lib/pkgconfig"'
-}  >> $MAC_SETUP_ZSHRC
+} >> $MAC_SETUP_ZSHRC
 
 brew install python
 pip install --user pipenv
 pip install --upgrade setuptools
 pip install --upgrade pip
 brew install pyenv
+brew install pyenv-virtualenv
 
-echo 'eval "$(pyenv init -)"' >> $MAC_SETUP_ZSHRC
+{
+echo 'eval "$(pyenv init -)"'
+eval "$(pyenv virtualenv-init -)"
+} >> $MAC_SETUP_ZSHRC
 
 {
   echo "# Python related stuff"
