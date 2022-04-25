@@ -2,7 +2,7 @@
 
 To-do:
 
-- [ ] Test script in a VM
+- [ ] Create GitHub actions to test script
 - [ ] Add keyboard shortcuts for jumping over one word and whole line
 
 ## Things to set up manually
