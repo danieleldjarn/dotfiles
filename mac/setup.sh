@@ -38,9 +38,9 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # Install zsh plugins 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-sed -i '' 's/plugins=(git)/plugins=(git colored-man-pages colorize pip python brew macos zsh-autosuggestions zsh-syntax-highlighting)/g' ~/.zshrc
+sed -i '' 's/plugins=(git)/plugins=(git colored-man-pages colorize pip python brew macos zsh-autosuggestions zsh-syntax-highlighting)/g' ~./zshrc
 # Change date used by zsh to ISO format
-sed -i '' 's/# HIST_STAMPS="mm/dd/yyyy"/HIST_STAMPS="yyyy-mm-dd"/g' ~/.zshrc 
+sed -i '' 's/# HIST_STAMPS="mm/dd/yyyy"/HIST_STAMPS="yyyy-mm-dd"/g' ~./zshrc 
 
 # Various CLI tools
 brew install tmux

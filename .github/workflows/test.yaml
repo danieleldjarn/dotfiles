@@ -7,4 +7,4 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: run macos setup script
-        run: ./setup.sh
+        run: ./mac/setup.sh
