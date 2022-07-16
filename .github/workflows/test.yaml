@@ -1,10 +1,17 @@
 name: test install scripts
 on: [push]
 jobs:
-  install:
+  install_mac:
     runs-on: macos-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: run macos setup script
         run: ./mac/setup.sh
+  install_ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: run linux setup script
+        run: ./linux/setup.sh
