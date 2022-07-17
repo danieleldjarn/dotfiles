@@ -1,4 +1,4 @@
-# #!/usr/bin/bash
+#!/usr/bin/bash
 
 CONFIG_FOLDER=~/.zsh
 mkdir -p $CONFIG_FOLDER
@@ -39,6 +39,18 @@ sudo apt install tree -y
 sudo apt install ack -y
 sudo apt install tldr -y
 sudo apt install htop -y
+
+# Install Nerd-fonts for LSD
+mkdir tmpdir && cd tmpdir &&
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraMono.zip && # Replace this with the font you want to use
+unzip FiraMono.zip &&
+mkdir ~/.fonts && cp * ~/.fonts
+
+#Install LSD
+TEMP_DEB="$(mktemp)" &&
+wget -O "$TEMP_DEB" 'https://github.com/Peltoche/lsd/releases/download/0.22.0/ &&lsd_0.22.0_amd64.deb' &&
+sudo dpkg -i "$TEMP_DEB"
+cd .. && rm -f tmpdir
 
 # Developer stuff
 sudo apt install sqlite3 python3-pip -y
