@@ -46,7 +46,7 @@ pip3 install --upgrade pip
 pip3 install --user pipenv
 pip3 install --upgrade setuptools
 curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-
+sudo apt-get install libssl-dev libbz2-dev libreadline-dev libsqlite3-dev liblzma-dev python3-tk # Needed to compile Python (else we get problems with Pyenv)
 {
   echo '# In this extension file goes all configuration not directly related to ZSH'
   echo ''
