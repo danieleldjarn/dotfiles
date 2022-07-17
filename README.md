@@ -1,11 +1,8 @@
-# Setting up a new Macbook
+# Dotfiles
 
-To-do:
+This repository contains scripts that I use to set up a new Mac or Ubuntu machine 
 
-- [ ] Create GitHub actions to test script
-- [ ] Add keyboard shortcuts for jumping over one word and whole line
-
-## Things to set up manually
+## Mac
 
 ### Install xcode
 
@@ -15,13 +12,21 @@ Download and install Xcode from Apple's [website](https://developer.apple.com/xc
 xcode-select --install
 ```
 
-## Run setup.sh
+### Run setup.sh
 
 The insipiration for the setup.sh script comes originally from [thomaspoignant/mac-dev-setup](https://github.com/thomaspoignant/mac-dev-setup).
-The script is a work in process and might not work perfectly 
+The script is a work in process and might not work perfectly
 
-To run the script
+Run the script
 
 ```bash
-./setup.sh
+./mac/setup.sh
+```
+
+## Ubuntu or dirivatives
+
+Run the script
+
+```bash
+./linux/setup.sh
 ```
