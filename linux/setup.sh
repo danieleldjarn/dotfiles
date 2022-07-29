@@ -106,6 +106,14 @@ sudo apt install apt-transport-https -y
 sudo apt update
 sudo apt install code -y
 
+# Apple and Keychron keyboard config
+# By default there are problems with the FN on some keyboards not working on Ubuntu and derivatives.
+# This fix makes the FN keys default and pressing the fn button on the keyboard enables the various media keys.
+# This fix requires a restart in case it is done to a live system.
+
+sudo touch /etc/modprobe.d/hid_apple.conf
+sudo echo "options hid_apple fnmode=2" > etc/modprobe.d/hid_apple.conf
+
 # Aliases
 {
   echo "# Aliases"
